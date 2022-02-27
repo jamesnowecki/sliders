@@ -21,7 +21,6 @@ const sliderSlice = createSlice({
     initialState,
     reducers: {
         update(state, action: PayloadAction<Record<string, boolean>>) {
-            console.log('updateSliders called', state, action.payload)
             state.sliderState = { ...state.sliderState, ...action.payload };
         }
     }

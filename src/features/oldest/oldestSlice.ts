@@ -13,7 +13,6 @@ const oldestSlice = createSlice({
     initialState,
     reducers: {
         updateOldest(state, action: PayloadAction<string>) {
-            console.log('updateOldest called', state, action.payload)
             state.oldestArray = [...state.oldestArray.filter(sliderName => sliderName !== action.payload), action.payload];
         },
     }

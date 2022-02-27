@@ -1,13 +1,22 @@
 import React from 'react';
-import { Switch, FormControlLabel } from '@mui/material';
+import { Switch, Typography } from '@mui/material';
 
 interface IndividualSliderProps {
     label: string;
     sliderName: string;
     checked: boolean;
     onChange(val: [string, boolean]): void;
-    color?: string;
+    color?: ColorType;
 }
+
+const styles = {
+    container: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+}
+
+type ColorType = 'success' | 'error' | 'info'
 
 export const IndividualSlider = ({
     label,
@@ -17,16 +26,13 @@ export const IndividualSlider = ({
     color,
 }: IndividualSliderProps) => {
     return (
-        <div>
-            <FormControlLabel
-                label={label}
-                control={
-                    <Switch
-                    checked={checked}
-                    onChange={evt => onChange([sliderName, evt.target.checked])}
-                />
-                }
+        <div style={styles.container}>
+            <Switch
+                checked={checked}
+                onChange={evt => onChange([sliderName, evt.target.checked])}
+                color={(color as ColorType)}
             />
+            <Typography>{label}</Typography>
         </div>
     )
 }

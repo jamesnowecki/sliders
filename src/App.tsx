@@ -1,10 +1,9 @@
 import React from 'react';
 import { Sliders } from './features/sliders/Sliders';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div>
         <Sliders />
     </div>
   )
