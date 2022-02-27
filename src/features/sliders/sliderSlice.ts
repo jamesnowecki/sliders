@@ -16,11 +16,12 @@ const sliderSlice = createSlice({
     name: 'slider',
     initialState,
     reducers: {
-        updated(state, payload: Record<string, boolean>) {
-
+        update(state, action: PayloadAction<Record<string, boolean>>) {
+            console.log(action.payload)
+            
         }
     }
 });
 
-export const { updated } = sliderSlice.actions;
+export const { update } = sliderSlice.actions;
 export default sliderSlice.reducer;

@@ -1,12 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import sliderReducer from '../features/sliders/sliderSlice';
+import oldestReducer from '../features/oldest/oldestSlice';
 
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    sliders: sliderReducer
+    sliders: sliderReducer,
+    oldest: oldestReducer
   },
 });
 
