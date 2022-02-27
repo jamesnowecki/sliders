@@ -1,13 +1,20 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-const initialState =  ['cheap', 'fast', 'good'];
+export interface Oldest {
+    oldestArray: string[];
+}
+
+const initialState =  { 
+    oldestArray : ['cheap', 'fast', 'good']
+};
 
 const oldestSlice = createSlice({
     name: 'oldest',
     initialState,
     reducers: {
         updateOldest(state, action: PayloadAction<string>) {
-            state = [...state.filter(sliderName => sliderName !== action.payload), action.payload];
+            console.log('updateOldest called', state, action.payload)
+            state.oldestArray = [...state.oldestArray.filter(sliderName => sliderName !== action.payload), action.payload];
         },
     }
 });

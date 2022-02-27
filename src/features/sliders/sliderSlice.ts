@@ -1,15 +1,19 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface SliderState {
-    cheap: boolean;
-    fast: boolean;
-    good: boolean;
+    sliderState: {
+        cheap: boolean;
+        fast: boolean;
+        good: boolean;
+    }
 };
 
 const initialState: SliderState = {
-    cheap: false,
-    fast: false,
-    good: false
+    sliderState: {
+        cheap: false,
+        fast: false,
+        good: false
+    }
 };
 
 const sliderSlice = createSlice({
@@ -17,7 +21,8 @@ const sliderSlice = createSlice({
     initialState,
     reducers: {
         update(state, action: PayloadAction<Record<string, boolean>>) {
-            state = { ...state, ...action.payload };
+            console.log('updateSliders called', state, action.payload)
+            state.sliderState = { ...state.sliderState, ...action.payload };
         }
     }
 });
